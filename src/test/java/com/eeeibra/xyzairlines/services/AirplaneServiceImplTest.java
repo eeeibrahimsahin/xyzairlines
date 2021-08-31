@@ -85,11 +85,9 @@ class AirplaneServiceImplTest {
         //Arrange
         int id = 2;
         given(airplaneRepository.existsById(id)).willReturn(false);
-        //Act
-        underTest.delete(id);
         //Assert
         assertThatThrownBy(() -> underTest.delete(id))
-                .isInstanceOf(AirplaneNotFoundException.class);
-               // .hasMessageContaining("Airplane with id " + id + " does not exist");
+                .isInstanceOf(AirplaneNotFoundException.class)
+                .hasMessageContaining("Airplane with id 2 does not exist");
     }
 }

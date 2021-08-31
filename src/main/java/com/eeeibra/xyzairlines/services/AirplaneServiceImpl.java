@@ -30,9 +30,7 @@ public class AirplaneServiceImpl implements AirplaneService{
     @Override
     public void delete(int id) {
         if (!airplaneRepository.existsById(id)) {
-            throw new AirplaneNotFoundException(
-                    "Airplane with id " + id + " does not exist"
-            );
+            throw new AirplaneNotFoundException("Airplane with id " + id + " does not exist");
         }
         airplaneRepository.deleteById(id);
     }

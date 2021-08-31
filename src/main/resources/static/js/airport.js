@@ -1,33 +1,31 @@
-let willDeleteAirplaneId;
+let willDeleteAirportId;
 
 $(document).ready(function () {
     $.ajax({
         type: "GET",
-        url: "/api/airplane",
+        url: "/api/airport",
         success: function (response) {
             console.log(response);
         },
     });
     $("#table").DataTable({
         ajax: {
-            url: "/api/airplane",
+            url: "/api/airport",
             dataSrc: "",
         },
         columns: [
             { data: "id" },
-            { data: "plate" },
-            { data: "type" },
-            { data: "currentAirport.name" },
+            { data: "name" },
+            { data: "land" },
             {
                 data: function (data) {
                     let stringData = "";
-                    data.destinationsAirports.forEach((element) => {
-                        stringData += element.name + "<br/>";
+                    data.airplanes.forEach((element) => {
+                        stringData += element.plate + "<br/>";
                     });
                     return stringData;
                 },
             },
-            { data: "currentFuel" },
             {
                 data: null,
                 defaultContent: '<i class="far fa-edit"></i>',
@@ -61,7 +59,7 @@ $("#table").on("click", ".fa-edit", function () {
     console.log(rowData);
     $.ajax({
         type: "PUT",
-        url: "/api/airplane",
+        url: "/api/airport",
         data: rowDataJSON,
         contentType: "application/json",
         success: function (response) {
@@ -72,24 +70,23 @@ $("#table").on("click", ".fa-edit", function () {
 });
 $("#table").on("click", ".fa-trash-alt", function () {
     rowData = $("#table").DataTable().row($(this).parents("tr").first()).data();
-    willDeleteAirplaneId = rowData.id;
+    willDeleteAirportId = rowData.id;
     getModal(
         "Information",
-        "The airplane will be deleted!",
+        "The airport will be deleted!",
         "Yes I'm sure",
         "btn-primary"
     );
 });
-
 $("#modal-confirmBtn").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "DELETE",
-        url: "/api/airplane/" + willDeleteAirplaneId,
+        url: "/api/airport/" + willDeleteAirportId,
         success: function (response) {
             getModal(
                 "Information",
-                "The airplane is deleted!",
+                "The airport is deleted!",
                 "hello",
                 "btn-primary",
                 true
