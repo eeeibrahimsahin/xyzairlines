@@ -16,7 +16,7 @@ import javax.persistence.OneToMany;
 import java.util.List;
 
 @SpringBootApplication
-public class XyzairlinesApplication implements CommandLineRunner {
+public class XyzairlinesApplication {
     @Autowired
     private AirportService airportService;
     @Autowired
@@ -25,7 +25,7 @@ public class XyzairlinesApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(XyzairlinesApplication.class, args);
     }
-
+/*
     @Override
     public void run(String... args) throws Exception {
         Airport airport = new Airport(1, "Schiphol", AirportLand.AMSTERDAM, null);
@@ -39,6 +39,6 @@ public class XyzairlinesApplication implements CommandLineRunner {
         airportService.save(airport3);
         airportService.save(airport4);
     }
-
+*/
 
 }

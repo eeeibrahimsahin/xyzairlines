@@ -35,8 +35,9 @@ public class AirportController {
         airportService.delete(id);
     }
 
-    @GetMapping("/{name}")
-    public Airport findByName(@PathVariable String name){
-        return airportService.findByName(name);
+    @GetMapping("/{land}")
+    public Airport findByLand(@PathVariable String land){
+        System.out.println("land = " + land);
+        return airportService.findByLand(land);
     }
 }

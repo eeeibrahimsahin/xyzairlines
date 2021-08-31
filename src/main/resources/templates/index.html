@@ -1,42 +1,60 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!--Fontawesome-->
-<script
-src="https://kit.fontawesome.com/144f4e017a.js"
-crossorigin="anonymous"
-></script>
-    <!-- Bootstrap CSS -->
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-    crossorigin="anonymous"/>  
-</head>
-  <body>
-    <div th:insert="fragments/navbar.html"></div>
-    <div class="container mt-5 pt-5">
-        <div class="d-grid gap-2">
-                <button id="get-airplane" class="btn btn-outline-danger" type="button">Airplanes</button>
-            <button id="get-airport" class="btn btn-outline-warning" type="button">Airport</button>
-          </div>
-    </div>
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <!--Fontawesome-->
+        <script
+            src="https://kit.fontawesome.com/144f4e017a.js"
+            crossorigin="anonymous"
+        ></script>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div th:insert="fragments/navbar.html"></div>
+        <div class="container mt-5 pt-5">
+            <div class="d-grid gap-2">
+                <button
+                    id="get-airplane"
+                    class="btn btn-outline-danger"
+                    type="button"
+                >
+                    Airplanes
+                </button>
+                <button
+                    id="get-airport"
+                    class="btn btn-outline-warning"
+                    type="button"
+                >
+                    Airport
+                </button>
+            </div>
+        </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-    crossorigin="anonymous"></script>
-    <script th:src="@{/js/navbar-search.js}"></script>
-    <script th:src="@{/js/index.js}"></script>
-</body>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"
+        ></script>
+        <script th:src="@{/js/navbar-search.js}"></script>
+        <script th:src="@{/js/index.js}"></script>
+    </body>
 </html>

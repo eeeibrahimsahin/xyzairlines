@@ -1,12 +1,16 @@
 package com.eeeibra.xyzairlines.services;
 
+import com.eeeibra.xyzairlines.exceptions.AirportAlreadyExistsException;
 import com.eeeibra.xyzairlines.exceptions.AirportNotFoundException;
 import com.eeeibra.xyzairlines.models.Airport;
+import com.eeeibra.xyzairlines.models.AirportLand;
 import com.eeeibra.xyzairlines.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AirportServiceImpl implements AirportService{
@@ -20,6 +24,11 @@ public class AirportServiceImpl implements AirportService{
 
     @Override
     public Airport save(Airport airport) {
+        if(airportRepository.existsByLand(airport.getLand())){
+            throw new AirportAlreadyExistsException(
+                    airport.getLand() + " exists."
+            );
+        }
         return airportRepository.save(airport);
     }
 
@@ -29,8 +38,12 @@ public class AirportServiceImpl implements AirportService{
     }
 
     @Override
-    public Airport findByName(String name) {
-        return airportRepository.findAirportByName(name);
+    public Airport findByLand(String land) {
+        System.out.println("land = " + land);
+        AirportLand airportLand = AirportLand.valueOf(land);
+        if(airportLand == null)
+            throw new AirportNotFoundException("Airport doesn't exist!");
+        return airportRepository.findAirportByLand(airportLand);
     }
 
     @Override

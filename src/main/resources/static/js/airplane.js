@@ -1,10 +1,12 @@
+let willDeleteAirplaneId;
+
 $(document).ready(function () {
     $.ajax({
         type: "GET",
         url: "/api/airplane",
         success: function (response) {
-           console.log(response) 
-        }
+            console.log(response);
+        },
     });
     $("#table").DataTable({
         ajax: {
@@ -59,7 +61,7 @@ $("#table").on("click", ".fa-edit", function () {
     console.log(rowData);
     $.ajax({
         type: "PUT",
-        url: "http://localhost:8080/api/willupdateemployee",
+        url: "/api/airplane",
         data: rowDataJSON,
         contentType: "application/json",
         success: function (response) {
@@ -70,12 +72,11 @@ $("#table").on("click", ".fa-edit", function () {
 });
 $("#table").on("click", ".fa-trash-alt", function () {
     rowData = $("#table").DataTable().row($(this).parents("tr").first()).data();
-    let id = rowData.id;
-    console.log(id);
+    willDeleteAirplaneId = rowData.id;
     getModal(
         "Information",
-        "The account will be deleted!",
-        "hello",
+        "The airplane will be deleted!",
+        "Yes I'm sure",
         "btn-primary"
     );
 });
@@ -83,9 +84,15 @@ $("#modal-confirmBtn").click(function (e) {
     e.preventDefault();
     $.ajax({
         type: "DELETE",
-        url: "/api/customer/3",
+        url: "/api/airplane/" + willDeleteAirplaneId,
         success: function (response) {
-            console.log(response);
+            getModal(
+                "Information",
+                "The airplane is deleted!",
+                "hello",
+                "btn-primary",
+                true
+            );
         },
     });
 });
