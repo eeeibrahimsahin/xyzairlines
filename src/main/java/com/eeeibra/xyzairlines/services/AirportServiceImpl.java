@@ -8,9 +8,7 @@ import com.eeeibra.xyzairlines.repositories.AirportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AirportServiceImpl implements AirportService{
@@ -39,7 +37,6 @@ public class AirportServiceImpl implements AirportService{
 
     @Override
     public Airport findByLand(String land) {
-        System.out.println("land = " + land);
         AirportLand airportLand = AirportLand.valueOf(land);
         if(airportLand == null)
             throw new AirportNotFoundException("Airport doesn't exist!");

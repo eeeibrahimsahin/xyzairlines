@@ -1,5 +1,4 @@
 let willDeleteAirportId;
-
 $(document).ready(function () {
     $.ajax({
         type: "GET",

@@ -37,7 +37,6 @@ public class AirportController {
 
     @GetMapping("/{land}")
     public Airport findByLand(@PathVariable String land){
-        System.out.println("land = " + land);
         return airportService.findByLand(land);
     }
 }
