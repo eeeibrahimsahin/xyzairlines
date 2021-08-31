@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface AirportRepository extends CrudRepository<Airport,Integer> {
     Airport findAirportByLand(AirportLand land);
     boolean existsByLand(AirportLand land);
+    boolean existsByName(String name);
 }

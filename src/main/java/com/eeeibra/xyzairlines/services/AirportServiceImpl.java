@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AirportServiceImpl implements AirportService{
+public class AirportServiceImpl implements AirportService {
     @Autowired
     private AirportRepository airportRepository;
 
@@ -22,10 +22,12 @@ public class AirportServiceImpl implements AirportService{
 
     @Override
     public Airport save(Airport airport) {
-        if(airportRepository.existsByLand(airport.getLand())){
-            throw new AirportAlreadyExistsException(
-                    airport.getLand() + " exists."
-            );
+        System.out.println("airport = " + airport);
+        if (airportRepository.existsByLand(airport.getLand())) {
+            if (airportRepository.existsByName(airport.getName()))
+                throw new AirportAlreadyExistsException(
+                        airport.getLand() + " exists."
+                );
         }
         return airportRepository.save(airport);
     }
@@ -38,7 +40,7 @@ public class AirportServiceImpl implements AirportService{
     @Override
     public Airport findByLand(String land) {
         AirportLand airportLand = AirportLand.valueOf(land);
-        if(airportLand == null)
+        if (airportLand == null)
             throw new AirportNotFoundException("Airport doesn't exist!");
         return airportRepository.findAirportByLand(airportLand);
     }
