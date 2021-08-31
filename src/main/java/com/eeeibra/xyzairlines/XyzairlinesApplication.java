@@ -29,10 +29,10 @@ public class XyzairlinesApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Airport airport = new Airport(1, "Schiphol", AirportLand.AMSTERDAM, null);
-        Airport airport1 = new Airport(1, "London City", AirportLand.LONDON, null);
-        Airport airport2 = new Airport(1, "Berlin City", AirportLand.BERLIN, null);
-        Airport airport3 = new Airport(1, "Stockholm City", AirportLand.STOCKHOLM, null);
-        Airport airport4 = new Airport(1, "Paris City", AirportLand.PARIS, null);
+        Airport airport1 = new Airport(2, "London City", AirportLand.LONDON, null);
+        Airport airport2 = new Airport(3, "Berlin City", AirportLand.BERLIN, null);
+        Airport airport3 = new Airport(4, "Stockholm City", AirportLand.STOCKHOLM, null);
+        Airport airport4 = new Airport(5, "Paris City", AirportLand.PARIS, null);
         airportService.save(airport);
         airportService.save(airport1);
         airportService.save(airport2);
