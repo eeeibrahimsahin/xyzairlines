@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Airplanes</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <!--Fontawesome-->
+        <script
+            src="https://kit.fontawesome.com/144f4e017a.js"
+            crossorigin="anonymous"
+        ></script>
+        <!--JQuery-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <!--Datatables-->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css"
+        />
+        <script
+            type="text/javascript"
+            charset="utf8"
+            src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"
+        ></script>
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="container">
+                <div th:insert="fragments/navbar.html"></div>
+            </div>
+            <div th:insert="fragments/modal.html"></div>
+            <div class="text-center mt-5 pt-5">
+                <i class="fas fa-plane fa-10x"></i>
+            </div>
+
+   <div class="container w-75 mx-auto">
+    <form id="airplaneForm" class="row g-3 needs-validation" novalidate>
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">Plate</label>
+        <input type="text" class="form-control" id="validationCustom01" value="" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom04" class="form-label">Type</label>
+        <select name="type" class="form-select" id="validationCustom04" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="AIRBUS_A300">AIRBUS_A300</option>
+          <option value="AIRBUS_A310">AIRBUS_A310</option>
+          <option value="AIRBUS_A320">AIRBUS_A320</option>
+          <option value="BOEING_737">BOEING_737</option>
+          <option value="BOEING_747">BOEING_747</option>
+          <option value="BOEING_767">BOEING_767</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid airplane type.
+        </div>
+      </div>
+
+      <div class="col-md-4">
+          <label for="validationCustom05" class="form-label">Current Airport</label>
+          <select name="currentAirport" class="form-select" id="validationCustom05" required>
+            <option selected disabled value="">Choose...</option>
+            <option value="AMSTERDAM">AMSTERDAM</option>
+            <option value="LONDON">LONDON</option>
+            <option value="PARIS">PARIS</option>
+            <option value="STOCKHOLM">STOCKHOLM</option>
+            <option value="BERLIN">BERLIN</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid airport.
+          </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom06" class="form-label">Destination Airport</label>
+          <select name="destinationAirport" class="form-select" id="validationCustom06" required>
+            <option selected disabled value="">Choose...</option>
+            <option value="AMSTERDAM">AMSTERDAM</option>
+            <option value="LONDON">LONDON</option>
+            <option value="PARIS">PARIS</option>
+            <option value="STOCKHOLM">STOCKHOLM</option>
+            <option value="BERLIN">BERLIN</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid airport.
+          </div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom07" class="form-label">Current Fuel</label>
+        <input type="number" class="form-control" id="validationCustom07" required>
+        <div class="invalid-feedback">
+          Please provide a valid fuel amount.
+        </div>
+      </div>
+      <div class="col-md-4">
+          <label for="validationCustom08" class="form-label">Tank Capacity</label>
+          <input type="number" class="form-control" id="validationCustom08" required>
+          <div class="invalid-feedback">
+            Please provide a valid tank capacity.
+          </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Save Airplane</button>
+      </div>
+  </form>
+   </div>
+            
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"
+        ></script>
+        <script th:src="@{/js/airplane-create.js}"></script>
+    </body>
+</html>
