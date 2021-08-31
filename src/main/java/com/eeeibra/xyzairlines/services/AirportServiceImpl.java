@@ -22,7 +22,6 @@ public class AirportServiceImpl implements AirportService {
 
     @Override
     public Airport save(Airport airport) {
-        System.out.println("airport = " + airport);
         if (airportRepository.existsByLand(airport.getLand())) {
             if (airportRepository.existsByName(airport.getName()))
                 throw new AirportAlreadyExistsException(
