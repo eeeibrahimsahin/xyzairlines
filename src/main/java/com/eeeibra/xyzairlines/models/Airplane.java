@@ -17,7 +17,7 @@ public class Airplane {
     private int id;
     private String plate;
     private AirplaneType type;
-    @OneToOne
+    @ManyToOne
     private Airport currentAirport;
     @ManyToMany
     private List<Airport> destinationsAirports;

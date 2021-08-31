@@ -46,13 +46,41 @@
             </div>
             <div class="container w-75 mx-auto">
                 <form
-                    id="airportForm"
+                    id="airplaneForm"
+                    class="row g-3 needs-validation"
+                    novalidate
+                >
+                    <div class="mb-3">
+                        <label for="flightPlate" class="form-label"
+                            >Plate</label
+                        >
+                        <select
+                            name="plate"
+                            class="form-select"
+                            id="flightPlate"
+                            required
+                        ></select>
+                        <div class="invalid-feedback">
+                            Please select a valid airport.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">
+                            Get Airplane Information
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="set-flight-div" class="container w-75 mx-auto d-none">
+                <form
+                    id="setFlightForm"
                     class="row g-3 needs-validation"
                     novalidate
                 >
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label"
-                            >Name</label
+                            >Plate</label
                         >
                         <input
                             type="text"
@@ -64,44 +92,77 @@
                         <div class="valid-feedback">Looks good!</div>
                     </div>
                     <div class="col-md-4">
+                        <label for="validationCustom04" class="form-label"
+                            >Type</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="validationCustom04"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+
+                    <div class="col-md-4">
                         <label for="validationCustom05" class="form-label"
-                            >Land</label
+                            >Current Airport</label
+                        >
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="validationCustom05"
+                            value=""
+                            required
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom06" class="form-label"
+                            >Destination Airport</label
                         >
                         <select
-                            name="land"
+                            name="destinationAirport"
                             class="form-select"
-                            id="validationCustom05"
+                            id="validationCustom06"
                             required
-                        >
-                            <option selected disabled value="">
-                                Choose...
-                            </option>
-                        </select>
+                        ></select>
                         <div class="invalid-feedback">
                             Please select a valid airport.
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <label for="validationCustom06" class="form-label"
-                            >Airplanes</label
+                        <label for="validationCustom07" class="form-label"
+                            >Current Fuel</label
                         >
-                        <select
-                            name="airplane"
-                            class="form-select"
-                            id="validationCustom06"
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="validationCustom07"
                             required
-                        >
-                            <option selected disabled value="">
-                                Choose...
-                            </option>
-                        </select>
+                        />
                         <div class="invalid-feedback">
-                            Please select a valid airport.
+                            Please provide a valid fuel amount.
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="validationCustom08" class="form-label"
+                            >Tank Capacity</label
+                        >
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="validationCustom08"
+                            required
+                        />
+                        <div class="invalid-feedback">
+                            Please provide a valid tank capacity.
                         </div>
                     </div>
                     <div class="col-12">
                         <button class="btn btn-primary" type="submit">
-                            Save Airport
+                            Set Flight
                         </button>
                     </div>
                 </form>
@@ -116,6 +177,6 @@
         ></script>
         <script th:src="@{/js/navbar-search.js}"></script>
         <script th:src="@{/js/validation.js}"></script>
-        <script th:src="@{/js/airport-create.js}"></script>
+        <script th:src="@{/js/set-flight.js}"></script>
     </body>
 </html>

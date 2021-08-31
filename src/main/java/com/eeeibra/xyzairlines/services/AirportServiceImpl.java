@@ -37,11 +37,10 @@ public class AirportServiceImpl implements AirportService {
     }
 
     @Override
-    public Airport findByLand(String land) {
-        AirportLand airportLand = AirportLand.valueOf(land);
-        if (airportLand == null)
+    public Airport findByName(String name) {
+        if (!airportRepository.existsByName(name))
             throw new AirportNotFoundException("Airport doesn't exist!");
-        return airportRepository.findAirportByLand(airportLand);
+        return airportRepository.findAirportByName(name);
     }
 
     @Override

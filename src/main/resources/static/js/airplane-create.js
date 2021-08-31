@@ -1,28 +1,28 @@
 let airplaneJSON;
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-    "use strict";
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll(".needs-validation");
-
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms).forEach(function (form) {
-        form.addEventListener(
-            "submit",
-            function (event) {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-
-                form.classList.add("was-validated");
-            },
-            false
-        );
+let airplaneTypes;
+let airportLands;
+let aiports;
+let airportJSON;
+$(document).ready(async function () {
+    await doAjax("GET", "/api/constants").then((data) => {
+        airplaneTypes = data.airplaneTypes;
+        airportLands = data.airportLands;
     });
-})();
+    await doAjax("GET", "/api/airport").then((data) => (airports = data));
+    setOptions("validationCustom04", airplaneTypes, false);
+    setOptions("validationCustom05", airports, true);
+    setOptions("validationCustom06", airports, true);
+});
+
+function setOptions(selectionName, optionsData, isAirport) {
+    let options = "";
+    optionsData.forEach((element) => {
+        options += `<option value="${isAirport ? element.name : element}">${
+            isAirport ? element.name : element
+        }</option>`;
+    });
+    $(`#${selectionName}`).html(options);
+}
 
 $("#airplaneForm").submit(function (e) {
     e.preventDefault();
@@ -67,6 +67,7 @@ async function createJSON() {
 
 $("#modal-confirmBtn").click(function (e) {
     e.preventDefault();
+    console.log(airplaneJSON);
     $.ajax({
         type: "POST",
         url: "api/airplane",

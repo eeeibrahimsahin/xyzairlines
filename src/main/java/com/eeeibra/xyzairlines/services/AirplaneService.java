@@ -11,5 +11,9 @@ public interface AirplaneService {
 
     Airplane update(Airplane airplane);
 
+    Airplane findByPlate(String plate);
+
     void delete(int id);
+
+    Airplane setFlight(Airplane airplane);
 }

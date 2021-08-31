@@ -12,7 +12,7 @@ public interface AirportService {
 
     Airport update(Airport airport);
 
-    Airport findByLand(String land);
-
     void delete(int id);
+
+    Airport findByName(String name);
 }
